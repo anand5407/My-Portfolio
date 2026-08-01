@@ -1,0 +1,498 @@
+Typewriter Effect in React — Complete Notes
+
+1. What is Typewriter Effect?
+
+A Typewriter effect is a text animation where letters appear one by one, just like someone is typing on a keyboard.
+
+Example:
+
+H
+He
+Hel
+Hell
+Hello
+
+It is commonly used in:
+
+Portfolio websites
+Landing pages
+Hero sections
+Developer profiles
+Marketing websites
+
+Example:
+
+Hi, I'm Anand
+I am a Developer
+नमस्ते
+Bonjour
+Hola
+
+The text changes continuously with typing and deleting animations.
+
+2. Typewriter Effect in React
+
+In React, we can create a typewriter effect in multiple ways:
+
+Method 1: Using JavaScript Logic
+
+We can manually create it using:
+
+useState()
+useEffect()
+setInterval()
+setTimeout()
+Method 2: Using Library (Recommended)
+
+Popular libraries:
+
+react-simple-typewriter
+react-type-animation
+typed.js
+
+Example:
+
+react-simple-typewriter
+
+It handles:
+
+Typing animation
+Deleting animation
+Looping
+Cursor
+Speed control 3. Installing react-simple-typewriter
+
+First install the package:
+
+npm install react-simple-typewriter
+
+After installation, import it:
+
+import { Typewriter } from "react-simple-typewriter"; 4. Basic Typewriter Syntax
+
+Example:
+
+<Typewriter
+words={[
+"Hello",
+"नमस्ते",
+"Bonjour",
+"Hola"
+]}
+loop={true}
+cursor
+cursorStyle="|"
+typeSpeed={200}
+deleteSpeed={50}
+delaySpeed={2000}
+/> 5. Understanding Every Property
+
+1. words
+   Purpose:
+
+Defines the list of texts that will be displayed.
+
+Example:
+
+words={[
+"Hello",
+"नमस्ते",
+"Bonjour",
+"Hola"
+]}
+
+Output:
+
+Hello
+नमस्ते
+Bonjour
+Hola
+
+The typewriter will type each word one by one.
+
+Flow:
+
+Hello
+↓
+Delete Hello
+↓
+नमस्ते
+↓
+Delete नमस्ते
+↓
+Bonjour
+↓
+Delete Bonjour
+↓
+Hola 2. loop
+Purpose:
+
+Controls whether animation repeats or stops.
+
+Example:
+
+loop={true}
+
+Means:
+
+Hello
+नमस्ते
+Bonjour
+Hola
+
+again
+
+Hello
+नमस्ते
+Bonjour
+Hola
+
+Animation never stops.
+
+If:
+
+loop={false}
+
+Then:
+
+Hello
+नमस्ते
+Bonjour
+Hola
+
+STOP 3. cursor
+Purpose:
+
+Shows blinking cursor.
+
+Example:
+
+cursor
+
+Output:
+
+Hello |
+
+The | symbol appears like a typing cursor.
+
+Without cursor:
+
+Hello 4. cursorStyle
+Purpose:
+
+Changes cursor design.
+
+Example:
+
+cursorStyle="|"
+
+Output:
+
+Hello |
+
+Other examples:
+
+cursorStyle="\_"
+
+Output:
+
+Hello \_
+cursorStyle=">"
+
+Output:
+
+Hello > 5. typeSpeed
+Purpose:
+
+Controls typing speed.
+
+Example:
+
+typeSpeed={200}
+
+Meaning:
+
+Each character takes 200 milliseconds.
+
+Example:
+
+H (200ms)
+He (400ms)
+Hel (600ms)
+Hell (800ms)
+Hello (1000ms)
+
+Higher value = slower typing
+
+Example:
+
+typeSpeed={50}
+
+Fast typing
+
+typeSpeed={300}
+
+Slow typing
+
+6. deleteSpeed
+   Purpose:
+
+Controls deleting speed.
+
+Example:
+
+deleteSpeed={50}
+
+When deleting:
+
+Hello
+
+Hell
+
+Hel
+
+He
+
+H
+
+empty
+
+Each character removes after 50 milliseconds.
+
+Higher value:
+
+deleteSpeed={200}
+
+Slow deletion.
+
+7. delaySpeed
+   Purpose:
+
+Controls waiting time after completing a word.
+
+Example:
+
+delaySpeed={2000}
+
+Flow:
+
+Hello
+(wait 2 seconds)
+
+Delete Hello
+
+नमस्ते
+(wait 2 seconds)
+
+Delete नमस्ते 6. Complete React Example
+import React from "react";
+import { Typewriter } from "react-simple-typewriter";
+
+export default function About(){
+
+return(
+
+<div>
+
+<h1>
+
+<Typewriter
+
+words={[
+"Hello",
+"नमस्ते",
+"Bonjour",
+"Hola"
+]}
+
+loop={true}
+
+cursor
+
+cursorStyle="|"
+
+typeSpeed={200}
+
+deleteSpeed={50}
+
+delaySpeed={2000}
+
+/>
+
+</h1>
+
+</div>
+
+)
+
+}
+
+Output:
+
+Hello |
+नमस्ते |
+Bonjour |
+Hola | 7. Using Typewriter With Normal Text
+
+Example:
+
+<h1>
+
+Hi, I'm
+
+<Typewriter
+
+words={[
+"Developer",
+"Designer",
+"Programmer"
+]}
+
+loop={true}
+
+/>
+
+</h1>
+
+Output:
+
+Hi, I'm Developer
+Hi, I'm Designer
+Hi, I'm Programmer 8. Typewriter Inside Span
+
+Common in portfolio:
+
+<h1>
+
+I am a
+
+<span>
+
+<Typewriter
+
+words={[
+"MERN Developer",
+"React Developer",
+"Full Stack Developer"
+]}
+
+/>
+
+</span>
+
+</h1>
+
+Output:
+
+I am a MERN Developer
+I am a React Developer
+I am a Full Stack Developer 9. Can We Use Typewriter For Whole Paragraph?
+
+Yes, but it is not recommended.
+
+Example:
+
+<Typewriter
+
+words={[
+"Hello, I am Anand. I am a Full Stack Developer."
+]}
+
+/>
+
+It will type the complete paragraph:
+
+Hello,
+I am Anand.
+I am a Full Stack Developer.
+
+But for paragraphs:
+
+Better use:
+
+Fade animation
+Scroll animation
+AOS
+Framer Motion
+
+Typewriter is best for:
+
+Short Text
+Titles
+Headings
+Keywords
+Roles 10. Why use Typewriter Library Instead of useEffect?
+
+Without library:
+
+You need to manage:
+
+state
+↓
+current text
+↓
+character index
+↓
+typing speed
+↓
+deleting logic
+↓
+loop logic
+↓
+timer cleanup
+
+Example:
+
+useEffect(()=>{
+
+const timer=setInterval(()=>{
+
+// change text
+
+},200)
+
+return()=>{
+clearInterval(timer)
+}
+
+},[])
+
+Library automatically handles everything.
+
+11. Typewriter Working Flow
+
+Internally it works like this:
+
+Component Render
+|
+↓
+Read words array
+|
+↓
+Start typing first word
+|
+↓
+Complete word
+|
+↓
+Wait delaySpeed
+|
+↓
+Delete word
+|
+↓
+Move to next word
+|
+↓
+Repeat if loop=true 12. Important Props Summary
+Prop Purpose
+words Text list to display
+loop Repeat animation
+cursor Show cursor
+cursorStyle Cursor symbol
+typeSpeed Typing speed
+deleteSpeed Removing speed
+delaySpeed Waiting time
+onLoopDone Function after loop complete
+onType Runs while typing
+onDelete Runs while deleting
