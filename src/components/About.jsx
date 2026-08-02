@@ -11,7 +11,7 @@ import node from "../assets/skills/Node.js.png";
 import express from "../assets/skills/Express.png";
 import mongodb from "../assets/skills/MongoDB (1).png";
 import java from "../assets/skills/Java.png";
-import tailwind from "../assets/skills/MySql.png";
+import tailwind from "../assets/skills/MySQL.png";
 
 
 export default function About(props) {
