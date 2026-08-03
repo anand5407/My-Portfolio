@@ -17,6 +17,26 @@ import tailwind from "../assets/skills/MySQL.png";
 export default function About(props) {
 
 
+  const handleResumeDownload = async () => {
+    try {
+      const response = await fetch(My_Resume);
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = blobUrl;
+      link.download = "Anand_Kumar_Mishra_Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 0);
+    } catch (error) {
+      window.open(My_Resume, "_blank", "noopener,noreferrer");
+    }
+  };
+
+
   const skills = [
     react,
     javascript,
@@ -254,7 +274,10 @@ export default function About(props) {
 
         <a
         href={My_Resume}
-        download="Anand_Kumar_Mishra_Resume.pdf"
+        onClick={(event) => {
+          event.preventDefault();
+          handleResumeDownload();
+        }}
         className={`
         mt-10
         inline-flex
