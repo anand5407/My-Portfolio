@@ -255,16 +255,10 @@ export default function About(props) {
         <a
         href={My_Resume}
         download="Anand_Kumar_Mishra_Resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        >
-
-
-        <button
-
         className={`
-
         mt-10
+        inline-flex
+        items-center
         px-8
         py-4
         rounded-xl
@@ -273,7 +267,6 @@ export default function About(props) {
         duration-300
         hover:scale-105
 
-
         ${
           props.theam==="Dark"
           ?
@@ -281,19 +274,12 @@ export default function About(props) {
           :
           "bg-green-700 text-white hover:shadow-[0_0_20px_#15803d]"
         }
-
-
         `}
-
         >
 
         Resume
 
         <i className="fa-solid fa-arrow-down ml-3"></i>
-
-
-        </button>
-
 
         </a>
 
